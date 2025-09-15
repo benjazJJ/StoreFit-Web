@@ -1,1 +1,45 @@
-<!DOCTYPE html><html lang='es'><head><meta charset='UTF-8'><title>Login</title><link rel='stylesheet' href='css/estilos.css'></head><body><h1>Iniciar Sesión</h1><form><input type='email' placeholder='Correo'><input type='password' placeholder='Contraseña'><button type='submit'>Ingresar</button></form></body></html>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>StoreFit - Login</title>
+  <link rel="stylesheet" href="css/estilos.css">
+</head>
+<body>
+<header>
+  <nav>
+    <img src="img/LogoStoreFitMontana.png" alt="Logo StoreFit" class="logo">
+    <ul>
+      <li><a href="index.html">Inicio</a></li>
+      <li><a href="productos.html">Productos</a></li>
+      <li><a href="blog.html">Blog</a></li>
+      <li><a href="nosotros.html">Nosotros</a></li>
+      <li><a href="contacto.html">Contacto</a></li>
+      <li><a href="login.html">Login</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main>
+  <section class="login">
+    <h1>INICIAR SESIÓN</h1>
+    <form id="form-login">
+      <label>Correo</label>
+      <input type="email" name="correo" required>
+
+      <label>Contraseña</label>
+      <input type="password" name="clave" minlength="4" maxlength="10" required>
+
+      <button type="submit">Ingresar</button>
+      <p>¿No tienes cuenta? <a href="registro.html">Regístrate</a></p>
+    </form>
+  </section>
+</main>
+
+<footer>
+  <p>&copy; 2025 StoreFit - Todos los derechos reservados</p>
+</footer>
+<script src="js/validaciones.js"></script>
+</body>
+</html>

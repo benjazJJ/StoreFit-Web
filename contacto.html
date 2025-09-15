@@ -1,1 +1,47 @@
-<!DOCTYPE html><html lang='es'><head><meta charset='UTF-8'><title>Contacto</title><link rel='stylesheet' href='css/estilos.css'></head><body><h1>Contacto</h1><form><input type='text' placeholder='Nombre'><input type='email' placeholder='Correo'><textarea placeholder='Comentario'></textarea><button type='submit'>Enviar</button></form></body></html>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>StoreFit - Contacto</title>
+  <link rel="stylesheet" href="css/estilos.css">
+</head>
+<body>
+<header>
+  <nav>
+    <img src="img/LogoStoreFitMontana.png" alt="Logo StoreFit" class="logo">
+    <ul>
+      <li><a href="index.html">Inicio</a></li>
+      <li><a href="productos.html">Productos</a></li>
+      <li><a href="blog.html">Blog</a></li>
+      <li><a href="nosotros.html">Nosotros</a></li>
+      <li><a href="contacto.html">Contacto</a></li>
+      <li><a href="login.html">Login</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main>
+  <section class="contacto">
+    <h1>CONTACTO</h1>
+    <form id="form-contacto">
+      <label>Nombre</label>
+      <input type="text" name="nombre" required>
+
+      <label>Correo</label>
+      <input type="email" name="correo" required>
+
+      <label>Mensaje</label>
+      <textarea name="mensaje" rows="5" required></textarea>
+
+      <button type="submit">Enviar</button>
+    </form>
+  </section>
+</main>
+
+<footer>
+  <p>&copy; 2025 StoreFit - Todos los derechos reservados</p>
+</footer>
+<script src="js/validaciones.js"></script>
+</body>
+</html>
