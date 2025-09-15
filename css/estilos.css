@@ -3,7 +3,7 @@ html, body {
   margin: 0;
   font-family: 'Poppins', sans-serif;
   font-weight: 700;
-  text-transform: uppercase;
+  text-transform: uppercase; 
 }
 
 body {
@@ -30,19 +30,12 @@ header {
   padding: 15px;
 }
 
-nav {
-  display: flex;
+/* --- NAVBAR EN GRID: logo | menu centrado | login derecha --- */
+nav.navbar {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
   align-items: center;
-  justify-content: center;  /* centra el ul en el medio */
-  position: relative;       /* permite posicionar el logo aparte */
-}
-
-nav ul {
-  margin: 0;
-  padding: 0;
-  list-style: none;
-  display: flex;
-  gap: 75px;
+  position: relative;
 }
 
 nav a {
@@ -51,16 +44,37 @@ nav a {
   font-weight: bold;
 }
 
-/* Aqui van las clases */
+/* --- MENU CENTRADO --- */
+.menu {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  gap: 75px;
+}
+
+/* --- LOGIN A LA DERECHA CON ÍCONO --- */
+.login {
+  justify-self: end;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: #fff;
+  text-decoration: none;
+}
+.login icono { font-size: 18px; }
+
+
+/* --- HERO --- */
 .hero {
   text-align: center;
   padding: 50px;
   background: #f4f4f4;
 }
 
+/* --- LOGO  --- */
 .logo {
-  position: absolute;  /* fija el logo sin romper el centrado */
-  left: 20px;          /* lo coloca a la izquierda */
   border-radius: 30px;
   width: 70px;
   height: auto;

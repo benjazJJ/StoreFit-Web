@@ -1,47 +1,56 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>StoreFit - Registro</title>
-  <link rel="stylesheet" href="css/estilos.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StoreFit - Registro</title>
+    <link rel="stylesheet" href="css/estilos.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
 </head>
+
 <body>
-<header>
-  <nav>
-    <img src="img/LogoStoreFitMontana.png" alt="Logo StoreFit" class="logo">
-    <ul>
-      <li><a href="index.html">Inicio</a></li>
-      <li><a href="productos.html">Productos</a></li>
-      <li><a href="blog.html">Blog</a></li>
-      <li><a href="nosotros.html">Nosotros</a></li>
-      <li><a href="contacto.html">Contacto</a></li>
-      <li><a href="login.html">Login</a></li>
-    </ul>
-  </nav>
-</header>
+    <header>
+        <nav class="navbar">
+            <img src="img/LogoStoreFitMontana.png" alt="Logo StoreFit" class="logo">
 
-<main>
-  <section class="registro">
-    <h1>REGISTRO</h1>
-    <form id="form-registro">
-      <label>Nombre</label>
-      <input type="text" name="nombre" required>
+            <ul class="menu">
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="productos.html">Productos</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="nosotros.html">Nosotros</a></li>
+                <li><a href="contacto.html">Contacto</a></li>
+            </ul>
 
-      <label>Correo</label>
-      <input type="email" name="correo" required>
+            <a class="login" href="login.html">
+                <i class="fa-regular fa-circle-user"></i> Login
+            </a>
+        </nav>
+    </header>
 
-      <label>Contraseña (4-10)</label>
-      <input type="password" name="clave" minlength="4" maxlength="10" required>
+    <main>
+        <section class="registro">
+            <h1>REGISTRO</h1>
+            <form id="form-registro">
+                <label>Nombre</label>
+                <input type="text" name="nombre" required>
 
-      <button type="submit">Crear cuenta</button>
-    </form>
-  </section>
-</main>
+                <label>Correo</label>
+                <input type="email" name="correo" required>
 
-<footer>
-  <p>&copy; 2025 StoreFit - Todos los derechos reservados</p>
-</footer>
-<script src="js/validaciones.js"></script>
+                <label>Contraseña (4-10)</label>
+                <input type="password" name="clave" minlength="4" maxlength="10" required>
+
+                <button type="submit">Crear cuenta</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 StoreFit - Todos los derechos reservados</p>
+    </footer>
+    <script src="js/validaciones.js"></script>
 </body>
+
 </html>
