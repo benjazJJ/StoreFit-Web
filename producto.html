@@ -1,1 +1,40 @@
-<!DOCTYPE html><html lang='es'><head><meta charset='UTF-8'><title>Detalle Producto</title><link rel='stylesheet' href='css/estilos.css'></head><body><h1>Detalle Producto</h1><p>Información del producto aquí.</p><button onclick="agregarAlCarrito('Producto X')">Añadir al carrito</button></body></html>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>StoreFit - Detalle Producto</title>
+  <link rel="stylesheet" href="css/estilos.css">
+</head>
+<body>
+<header>
+  <nav>
+    <img src="img/LogoStoreFitMontana.png" alt="Logo StoreFit" class="logo">
+    <ul>
+      <li><a href="index.html">Inicio</a></li>
+      <li><a href="productos.html">Productos</a></li>
+      <li><a href="blog.html">Blog</a></li>
+      <li><a href="nosotros.html">Nosotros</a></li>
+      <li><a href="contacto.html">Contacto</a></li>
+      <li><a href="login.html">Login</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main>
+  <section class="detalle-producto">
+    <h1>Polera deportiva</h1>
+    <img src="img/producto1.jpg" alt="Polera deportiva">
+    <p>Polera ligera y cómoda para entrenamientos.</p>
+    <p><strong>Precio:</strong> $15.990</p>
+    <button onclick="agregarAlCarrito('Polera deportiva')">Añadir al carrito</button>
+  </section>
+</main>
+
+<footer>
+  <p>&copy; 2025 StoreFit - Todos los derechos reservados</p>
+</footer>
+
+<script src="js/carrito.js"></script>
+</body>
+</html>
