@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>StoreFit - Carrito</title>
+  <link rel="stylesheet" href="css/estilos.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+  <header>
+    <nav class="navbar">
+      <img src="img/LogoStoreFitMontana.png" alt="Logo StoreFit" class="logo">
+      <ul class="menu">
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="productos.html">Productos</a></li>
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="nosotros.html">Nosotros</a></li>
+        <li><a href="contacto.html">Contacto</a></li>
+      </ul>
+      <a class="login" href="login.html">
+        <i class="fa-regular fa-circle-user"></i> Login
+      </a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="carrito">
+      <h1>Tu carrito</h1>
+      <ul id="lista-carrito"></ul>
+      <p id="total-carrito">Total: $0</p>
+      <a class="btn" href="productos.html">← Seguir comprando</a>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 StoreFit - Todos los derechos reservados</p>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script src="js/carrito.js"></script>
+</body>
+</html>
