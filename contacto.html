@@ -2,56 +2,89 @@
 <html lang="es">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>StoreFit - Contacto</title>
-    <link rel="stylesheet" href="css/estilos.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>StoreFit - Contacto</title>
+  <link rel="stylesheet" href="css/estilos.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 
 <body>
-    <header>
-        <nav class="navbar">
-            <img src="img/LogoStoreFitMontana.png" alt="Logo StoreFit" class="logo">
+  <header>
+    <nav class="navbar">
+      <img src="img/LogoStoreFitMontana.png" alt="Logo StoreFit" class="logo">
+      <ul class="menu">
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="productos.html">Productos</a></li>
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="nosotros.html">Nosotros</a></li>
+        <li><a class="active" href="contacto.html">Contacto</a></li>
+      </ul>
+      <a class="login" href="login.html">
+        <i class="fa-regular fa-circle-user"></i> Login
+      </a>
+    </nav>
+  </header>
 
-            <ul class="menu">
-                <li><a href="index.html">Inicio</a></li>
-                <li><a href="productos.html">Productos</a></li>
-                <li><a href="blog.html">Blog</a></li>
-                <li><a href="nosotros.html">Nosotros</a></li>
-                <li><a href="contacto.html">Contacto</a></li>
-            </ul>
+  <main>
+    <!-- Intro -->
+    <section class="intro-contacto">
+      <h1>¡Queremos escucharte!</h1>
+      <div class="contenido-intro">
+        <div class="texto-intro">
+          <p>
+            En StoreFit valoramos enormemente la opinión de nuestros clientes, porque creemos que tu experiencia es la base 
+            para seguir creciendo y mejorando cada día. Sabemos que la comunicación cercana y directa es fundamental, 
+            por eso hemos creado este espacio especialmente para ti.
+          </p>
+          <p>
+            Aquí podrás dejarnos tus consultas, sugerencias, comentarios o incluso compartir tus ideas para que juntos 
+            podamos construir un mejor servicio. Cada mensaje que recibimos es una oportunidad para aprender y ofrecerte 
+            una experiencia de compra más completa y personalizada.
+          </p>
+          <p>
+            Nuestro compromiso es responderte con la atención que mereces, porque tu confianza es lo más importante para nosotros.
+          </p>
+        </div>
+        <div class="imagen-intro">
+          <img src="img/celebracionGOL.png" alt="Contacto StoreFit">
+        </div>
+      </div>
+    </section>
 
-            <a class="login" href="login.html">
-                <i class="fa-regular fa-circle-user"></i> Login
-            </a>
-        </nav>
-    </header>
+    <!-- Formulario -->
+    <section class="contacto">
+      <h2>Contáctanos</h2>
+      <form id="form-contacto">
+        <label for="nombre">Nombre</label>
+        <input type="text" id="nombre" name="nombre" placeholder="Ingresa tu nombre">
+        <span id="error-nombre" class="error"></span>
 
-    <main>
-        <section class="contacto">
-            <h1>CONTACTO</h1>
-            <form id="form-contacto">
-                <label>Nombre</label>
-                <input type="text" name="nombre" required>
+        <label for="apellido">Apellido</label>
+        <input type="text" id="apellido" name="apellido" placeholder="Ingresa tu apellido">
+        <span id="error-apellido" class="error"></span>
 
-                <label>Correo</label>
-                <input type="email" name="correo" required>
+        <label for="correo">Correo</label>
+        <input type="email" id="correo" name="correo" placeholder="ejemplo@gmail.com">
+        <span id="error-correo" class="error"></span>
 
-                <label>Mensaje</label>
-                <textarea name="mensaje" rows="5" required></textarea>
+        <label for="mensaje">Mensaje</label>
+        <textarea id="mensaje" name="mensaje" rows="5" placeholder="Escribe tu mensaje aquí..."></textarea>
+        <span id="error-mensaje" class="error"></span>
 
-                <button type="submit">Enviar</button>
-            </form>
-        </section>
-    </main>
+        <button type="submit">Enviar</button>
+      </form>
+    </section>
+  </main>
 
-    <footer>
-        <p>&copy; 2025 StoreFit - Todos los derechos reservados</p>
-    </footer>
-    <script src="js/validaciones.js"></script>
+  <footer>
+    <p>&copy; 2025 StoreFit - Todos los derechos reservados</p>
+  </footer>
+
+  <!-- SweetAlert2 para el mensaje bonito -->
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <!-- Tu JS -->
+  <script src="js/contacto.js"></script>
 </body>
-
 </html>

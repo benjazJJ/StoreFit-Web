@@ -1,7 +1,6 @@
 /* ===================================================== */
 /* === Estilos Generales (Body, Fuente, etc.) === */
 /* ===================================================== */
-
 html, body {
   height: 100%;
   margin: 0;
@@ -21,7 +20,6 @@ main { flex: 1; }
 /* ===================================================== */
 /* === Footer (Pie de página) === */
 /* ===================================================== */
-
 footer {
   margin-top: auto;
   text-align: center;
@@ -33,9 +31,8 @@ footer {
 /* ===================================================== */
 /* === Sección Hero (Bienvenida) === */
 /* ===================================================== */
-
 .hero {
-  background-image: url('../img/HombreStoreFit.jpeg'); /* Usa la ruta y nombre real del archivo */
+  background-image: url('../img/HombreStoreFit.jpeg');
   background-size: cover;
   background-position: center;
   color: #fff;
@@ -44,31 +41,23 @@ footer {
   position: relative;
   min-height: 350px;
 }
-
-.hero h1, .hero p {
-  position: relative;
-  z-index: 2;
-}
-
+.hero h1, .hero p { position: relative; z-index: 2; }
 .hero::before {
   content: "";
   position: absolute;
   inset: 0;
-  background: rgba(0,0,0,0.4); /* Oscurece la imagen para mejor legibilidad */
+  background: rgba(0,0,0,0.4);
   z-index: 1;
 }
 
 /* ===================================================== */
-/* === Header y Navbar (siempre visible, sin hamburguesa) === */
+/* === Header y Navbar === */
 /* ===================================================== */
-
 header {
   background: linear-gradient(90deg, #064635, #29ABE2, #6A3DE2);
   color: #fff;
   padding: 15px;
 }
-
-/* Escritorio: logo | espacio | login */
 nav.navbar {
   display: grid;
   grid-template-columns: auto 1fr auto;
@@ -76,15 +65,11 @@ nav.navbar {
   position: relative;
   z-index: 10;
 }
-
-/* Links base */
 nav a {
   color: #fff;
   text-decoration: none;
   font-weight: bold;
 }
-
-/* Menú centrado */
 .menu {
   margin: 0;
   padding: 0;
@@ -92,10 +77,7 @@ nav a {
   display: flex;
   justify-content: center;
   gap: 75px;
-  flex-wrap: nowrap;            /* cambia a wrap en móvil */
 }
-
-/* Botón LOGIN */
 .login {
   justify-self: end;
   display: inline-flex;
@@ -107,20 +89,15 @@ nav a {
   border: 1.5px solid #fff;
   border-radius: 999px;
   font-weight: 600;
-  white-space: nowrap;          /* evita quiebre del texto */
+  white-space: nowrap;
 }
-
-/* Logo */
 .logo {
   border-radius: 30px;
   width: 70px;
   height: auto;
 }
 
-/* ===================================================== */
-/* === Animaciones/Hover del Navbar === */
-/* ===================================================== */
-
+/* Hover del menú */
 .menu a {
   color: #fff;
   text-decoration: none;
@@ -129,10 +106,7 @@ nav a {
   padding: 5px 0;
   transition: color 0.3s ease, transform 0.3s ease;
 }
-
-.menu a:hover { color: #fff; transform: scale(1.1); }
-
-/* Subrayado animado */
+.menu a:hover { transform: scale(1.1); }
 .menu a::after {
   content: '';
   position: absolute;
@@ -150,13 +124,11 @@ nav a {
 /* ===================================================== */
 /* === Sección Nosotros === */
 /* ===================================================== */
-
 .nosotros {
   max-width: 1100px;
   margin: 40px auto;
   padding: 0 20px;
 }
-
 .nosotros h1 {
   margin-bottom: 20px;
   text-align: center;
@@ -166,18 +138,13 @@ nav a {
   background: linear-gradient(90deg, #064635, #29ABE2, #6A3DE2);
   color: #fff;
 }
-
 .nosotros h2 {
   margin-bottom: 16px;
-  font-family: 'Poppins', sans-serif;
   text-transform: none;
   color: #555;
 }
 
-/* ===================================================== */
-/* === Bloques de Contenido (Nosotros) === */
-/* ===================================================== */
-
+/* Bloques de Nosotros */
 .bloque .contenido {
   display: flex;
   align-items: flex-start;
@@ -186,92 +153,55 @@ nav a {
   text-align: left;
   margin-bottom: 10px;
 }
-
 .bloque.invert .contenido { flex-direction: row-reverse; }
-
 .bloque .foto img {
   width: 260px;
   height: auto;
   border-radius: 10px;
   object-fit: cover;
 }
-
 .bloque .texto {
   flex: 1;
   line-height: 1.6;
   margin-top: -10px;
 }
-
 .bloque .texto p {
-  font-family: 'Poppins', sans-serif;
   text-transform: none;
   font-weight: 400;
   line-height: 1.6;
 }
 
 /* ===================================================== */
-/* === Responsive (Tablets y Móviles) — sin ocultar menú === */
+/* === Responsive Navbar y Nosotros === */
 /* ===================================================== */
-
-/* Tablet: 2 filas (logo+login arriba, menú abajo centrado) */
 @media (max-width: 900px) {
   .menu { gap: 28px; }
-
-  /* Bloques */
   .bloque .contenido { flex-direction: column; align-items: center; text-align: center; }
   .bloque.invert .contenido { flex-direction: column; }
   .bloque .foto img { width: 100%; max-width: 400px; }
   .bloque .texto { margin-top: 0; }
-
-  /* Navbar a 2 filas */
   nav.navbar {
     grid-template-columns: auto 1fr;
-    grid-template-rows: auto auto;      /* fila 1: logo+login | fila 2: menú */
+    grid-template-rows: auto auto;
   }
-  .logo  { grid-column: 1; grid-row: 1; }
-  .login { grid-column: 2; grid-row: 1; justify-self: end; }
-  .menu  {
-    grid-column: 1 / -1; grid-row: 2;
-    justify-content: center;
-    margin-top: 10px;
-  }
+  .menu { grid-column: 1 / -1; margin-top: 10px; }
 }
-
-/* Móvil: menú siempre visible, hace wrap y reduce espacios */
 @media (max-width: 560px) {
-  nav.navbar {
-    grid-template-columns: auto 1fr auto; /* logo | espacio | login */
-    grid-template-rows: auto auto;        /* fila 1: logo-login | fila 2: menú */
-  }
-
+  nav.navbar { grid-template-columns: auto 1fr auto; grid-template-rows: auto auto; }
   .login { padding: 6px 10px; font-size: .9rem; }
-
-  .menu {
-    grid-column: 1 / -1; grid-row: 2;
-    display: flex;                 /* siempre visible */
-    flex-wrap: wrap;               /* permite salto de línea */
-    gap: 14px;                     /* menos separación */
-    justify-content: center;
-    margin-top: 10px;
-  }
-
-  /* Enlaces un poco más compactos para que quepan */
+  .menu { flex-wrap: wrap; gap: 14px; margin-top: 10px; }
   .menu a { padding: 4px 0; font-size: .95rem; }
 }
 
-/* ===================================================== */
-/* === Link Activo del Menú === */
-/* ===================================================== */
-
+/* Activo */
 .menu a.active {
   border-bottom: 2px solid #fff;
   padding-bottom: 4px;
 }
 
 /* ===================================================== */
-/* === Sección Productos (Destacados) === */
+/* === Sección Productos === */
 /* ===================================================== */
-
 .productos {
   display: flex;
   flex-direction: column;
@@ -281,10 +211,148 @@ nav a {
   max-width: 1100px;
   padding: 20px;
 }
-
 .productos h2 {
   margin-bottom: 20px;
   font-size: 2em;
   color: #333;
   text-align: center;
+}
+
+/* ===================================================== */
+/* === Sección Contacto === */
+/* ===================================================== */
+.contacto {
+  max-width: 720px;
+  margin: 60px auto;
+  padding: 32px;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 12px 32px rgba(0,0,0,.08);
+}
+.contacto h1 {
+  text-align: center;
+  margin: 0 0 22px 0;
+  letter-spacing: .5px;
+}
+.contacto label {
+  display: block;
+  margin: 14px 0 6px;
+  font-weight: 700;
+}
+.contacto input,
+.contacto textarea {
+  width: 100%;
+  padding: 14px 16px;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  font-size: 16px;
+  outline: none;
+  background: #fff;
+  transition: box-shadow .2s, border-color .2s;
+}
+.contacto input,
+.contacto textarea,
+.contacto input::placeholder,
+.contacto textarea::placeholder {
+  text-transform: none;
+  font-weight: 400;
+}
+.contacto input:focus,
+.contacto textarea:focus {
+  border-color: #29ABE2;
+  box-shadow: 0 0 0 4px rgba(41,171,226,.18);
+}
+.contacto button {
+  margin-top: 20px;
+  width: 100%;
+  padding: 14px 18px;
+  border: 0;
+  border-radius: 12px;
+  color: #fff;
+  font-size: 18px;
+  cursor: pointer;
+  background: linear-gradient(90deg, #064635, #29ABE2, #6A3DE2);
+  transition: transform .08s ease, filter .2s ease;
+}
+.contacto button:hover { filter: brightness(1.03); }
+.contacto button:active { transform: translateY(1px); }
+.contacto .error {
+  margin-top: 6px;
+  color: #c0392b;
+  font-size: 13px;
+  font-weight: 600;
+  text-transform: none;
+}
+@media (max-width: 560px) {
+  .contacto { margin: 32px 14px; padding: 22px; }
+}
+
+/* ===================================================== */
+/* === Intro Contacto (Texto inicial) === */
+/* ===================================================== */
+.intro-contacto {
+  max-width: 900px;
+  margin: 50px auto 30px auto;
+  padding: 0 20px;
+}
+.intro-contacto h1 {
+  text-align: center;             /* centrado */
+  font-size: 2.4em;                /* tamaño de letra más grande */
+  font-weight: 700;                /* negrita */
+  color: #111;                     /* color negro elegante */
+  margin-bottom: 22px;
+  font-family: 'Poppins', sans-serif; /* tipografía consistente */
+  letter-spacing: 1px;
+  text-transform: none;            /* mantiene mayúsculas/minúsculas */
+}
+.intro-contacto .texto-intro {
+  text-align: left;
+}
+.intro-contacto .texto-intro p {
+  text-transform: none;
+  font-weight: 400;
+  line-height: 1.6;
+  margin-bottom: 16px;
+}
+
+/* ===================================================== */
+/* === Intro Contacto con Imagen === */
+/* ===================================================== */
+.intro-contacto .contenido-intro {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 30px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+.intro-contacto .texto-intro {
+  flex: 2;
+  text-align: left;
+}
+.intro-contacto .imagen-intro {
+  flex: 1;
+  text-align: right;
+}
+.intro-contacto .imagen-intro img {
+  max-width: 320px;
+  width: 100%;
+  border-radius: 12px;
+  object-fit: cover;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* Responsive: en móviles se apila */
+@media (max-width: 900px) {
+  .intro-contacto .contenido-intro {
+    flex-direction: column;
+    text-align: center;
+  }
+  .intro-contacto .texto-intro {
+    text-align: center;
+  }
+  .intro-contacto .imagen-intro {
+    text-align: center;
+    margin-top: 20px;
+  }
 }
