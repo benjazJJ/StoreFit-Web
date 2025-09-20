@@ -1,5 +1,5 @@
 /* ===================================================== */
-/* === General Styles (Body, Font, etc.) === */
+/* === Estilos Generales (Body, Fuente, etc.) === */
 /* ===================================================== */
 
 html, body {
@@ -19,7 +19,7 @@ body {
 main { flex: 1; }
 
 /* ===================================================== */
-/* === Footer Styles === */
+/* === Footer (Pie de página) === */
 /* ===================================================== */
 
 footer {
@@ -31,7 +31,7 @@ footer {
 }
 
 /* ===================================================== */
-/* === Hero Section (Welcome Section) === */
+/* === Sección Hero (Bienvenida) === */
 /* ===================================================== */
 
 .hero {
@@ -39,15 +39,15 @@ footer {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 60vh;   
+  height: 60vh;
   text-align: center;
-  padding: 0 20px;  
-  background-color: #f4f4f4; 
+  padding: 0 20px;
+  background-color: #f4f4f4;
 }
 
 .hero h1 {
   font-size: 2.5em;
-  margin-bottom: 15px;  
+  margin-bottom: 15px;
   color: #333;
 }
 
@@ -57,7 +57,7 @@ footer {
 }
 
 /* ===================================================== */
-/* === Header & Navbar Styles === */
+/* === Header y Navbar (siempre visible, sin hamburguesa) === */
 /* ===================================================== */
 
 header {
@@ -66,20 +66,23 @@ header {
   padding: 15px;
 }
 
+/* Escritorio: logo | espacio | login */
 nav.navbar {
   display: grid;
   grid-template-columns: auto 1fr auto;
   align-items: center;
   position: relative;
+  z-index: 10;
 }
 
-/* --- Menu Links Styling --- */
+/* Links base */
 nav a {
   color: #fff;
   text-decoration: none;
   font-weight: bold;
 }
 
+/* Menú centrado */
 .menu {
   margin: 0;
   padding: 0;
@@ -87,8 +90,10 @@ nav a {
   display: flex;
   justify-content: center;
   gap: 75px;
+  flex-wrap: nowrap;            /* cambia a wrap en móvil */
 }
 
+/* Botón LOGIN */
 .login {
   justify-self: end;
   display: inline-flex;
@@ -96,8 +101,14 @@ nav a {
   gap: 6px;
   color: #fff;
   text-decoration: none;
+  padding: 8px 14px;
+  border: 1.5px solid #fff;
+  border-radius: 999px;
+  font-weight: 600;
+  white-space: nowrap;          /* evita quiebre del texto */
 }
 
+/* Logo */
 .logo {
   border-radius: 30px;
   width: 70px;
@@ -105,25 +116,21 @@ nav a {
 }
 
 /* ===================================================== */
-/* === Navbar Animations (Hover Effects) === */
+/* === Animaciones/Hover del Navbar === */
 /* ===================================================== */
 
 .menu a {
   color: #fff;
   text-decoration: none;
   font-weight: bold;
-  position: relative; /* Necesario para los efectos de animación */
-  padding: 5px 0; /* Añadido para que haya espacio para el subrayado */
-  transition: color 0.3s ease, transform 0.3s ease; /* Transición suave para color y transform */
+  position: relative;
+  padding: 5px 0;
+  transition: color 0.3s ease, transform 0.3s ease;
 }
 
-/* Efecto hover */
-.menu a:hover {
-  color:rgb(255, 255, 255); /* Cambia el color del texto */
-  transform: scale(1.1); /* Aumenta el tamaño del texto al pasar el ratón */
-}
+.menu a:hover { color: #fff; transform: scale(1.1); }
 
-/* Subrayado animado al pasar el ratón */
+/* Subrayado animado */
 .menu a::after {
   content: '';
   position: absolute;
@@ -136,15 +143,10 @@ nav a {
   transform-origin: bottom right;
   transition: transform 0.3s ease;
 }
-
-/* Efecto de subrayado animado en el hover */
-.menu a:hover::after {
-  transform: scaleX(1);
-  transform-origin: bottom left;
-}
+.menu a:hover::after { transform: scaleX(1); transform-origin: bottom left; }
 
 /* ===================================================== */
-/* === Nosotros Section === */
+/* === Sección Nosotros === */
 /* ===================================================== */
 
 .nosotros {
@@ -171,7 +173,7 @@ nav a {
 }
 
 /* ===================================================== */
-/* === Bloques Section (Content Blocks) === */
+/* === Bloques de Contenido (Nosotros) === */
 /* ===================================================== */
 
 .bloque .contenido {
@@ -183,9 +185,7 @@ nav a {
   margin-bottom: 10px;
 }
 
-.bloque.invert .contenido {
-  flex-direction: row-reverse; /* para la visión */
-}
+.bloque.invert .contenido { flex-direction: row-reverse; }
 
 .bloque .foto img {
   width: 260px;
@@ -208,34 +208,57 @@ nav a {
 }
 
 /* ===================================================== */
-/* === Responsive Styles === */
+/* === Responsive (Tablets y Móviles) — sin ocultar menú === */
 /* ===================================================== */
 
+/* Tablet: 2 filas (logo+login arriba, menú abajo centrado) */
 @media (max-width: 900px) {
-  .menu { gap: 24px; }
+  .menu { gap: 28px; }
 
-  .bloque .contenido {
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
+  /* Bloques */
+  .bloque .contenido { flex-direction: column; align-items: center; text-align: center; }
+  .bloque.invert .contenido { flex-direction: column; }
+  .bloque .foto img { width: 100%; max-width: 400px; }
+  .bloque .texto { margin-top: 0; }
+
+  /* Navbar a 2 filas */
+  nav.navbar {
+    grid-template-columns: auto 1fr;
+    grid-template-rows: auto auto;      /* fila 1: logo+login | fila 2: menú */
   }
-
-  .bloque.invert .contenido {
-    flex-direction: column;
-  }
-
-  .bloque .foto img {
-    width: 100%;
-    max-width: 400px;
-  }
-
-  .bloque .texto {
-    margin-top: 0;
+  .logo  { grid-column: 1; grid-row: 1; }
+  .login { grid-column: 2; grid-row: 1; justify-self: end; }
+  .menu  {
+    grid-column: 1 / -1; grid-row: 2;
+    justify-content: center;
+    margin-top: 10px;
   }
 }
 
+/* Móvil: menú siempre visible, hace wrap y reduce espacios */
+@media (max-width: 560px) {
+  nav.navbar {
+    grid-template-columns: auto 1fr auto; /* logo | espacio | login */
+    grid-template-rows: auto auto;        /* fila 1: logo-login | fila 2: menú */
+  }
+
+  .login { padding: 6px 10px; font-size: .9rem; }
+
+  .menu {
+    grid-column: 1 / -1; grid-row: 2;
+    display: flex;                 /* siempre visible */
+    flex-wrap: wrap;               /* permite salto de línea */
+    gap: 14px;                     /* menos separación */
+    justify-content: center;
+    margin-top: 10px;
+  }
+
+  /* Enlaces un poco más compactos para que quepan */
+  .menu a { padding: 4px 0; font-size: .95rem; }
+}
+
 /* ===================================================== */
-/* === Menu Active Link Styling === */
+/* === Link Activo del Menú === */
 /* ===================================================== */
 
 .menu a.active {
@@ -244,7 +267,7 @@ nav a {
 }
 
 /* ===================================================== */
-/* === Productos Section (Featured Products) === */
+/* === Sección Productos (Destacados) === */
 /* ===================================================== */
 
 .productos {
@@ -252,7 +275,7 @@ nav a {
   flex-direction: column;
   align-items: center;
   text-align: center;
-  margin: 50px auto;  
+  margin: 50px auto;
   max-width: 1100px;
   padding: 20px;
 }
@@ -261,5 +284,5 @@ nav a {
   margin-bottom: 20px;
   font-size: 2em;
   color: #333;
-  text-align: center; 
+  text-align: center;
 }
