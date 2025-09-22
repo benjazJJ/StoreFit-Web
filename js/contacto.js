@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const eMensaje  = document.getElementById("error-mensaje");
 
   // Regex para correos válidos
-  const emailDominios = /^[\w.+-]+@(duocuc\.com|profesorduocuc\.com|gmail\.com)$/i;
+  const emailDominios = /^[\w.+-]+@(duocuc\.cl|profesorduocuc\.cl|gmail\.com)$/i;
 
   function limpiarErrores() {
     [eNombre, eApellido, eCorreo, eMensaje].forEach(el => el.textContent = "");
@@ -38,7 +38,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // Validación correo
     const vCorreo = (correo.value || "").trim();
     if (vCorreo && !emailDominios.test(vCorreo)) {
-      eCorreo.textContent = "Solo @duocuc.com, @profesorduocuc.com o @gmail.com";
+      eCorreo.textContent = "Solo @duocuc.cl, @profesorduocuc.cl o @gmail.com";
       eCorreo.style.color = "red";
       ok = false;
     }

@@ -78,19 +78,33 @@ nav a {
   justify-content: center;
   gap: 75px;
 }
-.login {
-  justify-self: end;
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  color: #fff;
-  text-decoration: none;
-  padding: 8px 14px;
-  border: 1.5px solid #fff;
-  border-radius: 999px;
-  font-weight: 600;
-  white-space: nowrap;
+/* Login con el mismo diseño de píldora que Hola/Salir */
+.login{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
+
+  height:40px;
+  padding:0 14px;
+  border-radius:999px;
+  box-sizing:border-box;
+
+  border:1px solid #22232a;
+  background:#0e0e12;
+  color:#e9e9ee;
+  text-decoration:none;
+
+  font-weight:700;
+  font-size:14px;
+  line-height:1;
+  white-space:nowrap;
 }
+
+.login i{ font-size:14px; opacity:.9; }
+.login:hover{ filter:brightness(1.06); }
+.login:active{ transform:translateY(1px); }
+
 .logo {
   border-radius: 30px;
   width: 70px;
@@ -658,4 +672,87 @@ nav a {
 @media (max-width:560px){
   .auth-card{ padding:24px 20px; }
   .auth-card form{ max-width:100%; }
+}
+
+/* ====== ÁREA USUARIO: Saludo + Salir + Dropdown (Carrito) ====== */
+
+/* Contenedor a la derecha del navbar */
+.area-usuario{
+  margin-left:auto;
+  display:flex;
+  align-items:center;
+  gap:10px;
+  position:relative; /* ancla del dropdown */
+}
+
+/* Píldora base: mismo tamaño para “Hola, …” y “Salir” */
+.pildora-usuario{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
+  height:40px;               /* altura uniforme */
+  padding:0 14px;            /* padding uniforme */
+  border-radius:999px;
+  border:1px solid #22232a;
+  background:#0e0e12;
+  color:#e9e9ee;
+  font-weight:700;
+  font-size:14px;
+  line-height:1;
+  box-sizing:border-box;
+  text-decoration:none;
+  white-space:nowrap;
+}
+.pildora-usuario i{ font-size:14px; opacity:.9; }
+
+/* “Hola, nombre” es <button>: quitar estilos nativos y heredar píldora */
+.btn-usuario{
+  appearance:none;
+  -webkit-appearance:none;
+  border:0;
+  background:transparent;
+  cursor:pointer;
+}
+.btn-usuario.pildora-usuario{
+  border:1px solid #22232a;
+  background:#0e0e12;
+  color:#e9e9ee;
+}
+
+
+
+/* Nombre truncado para no romper el layout */
+.btn-usuario .nombre{
+  max-width:160px;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  white-space:nowrap;
+}
+
+/* Dropdown mínimo bajo el saludo */
+.desplegable-usuario{
+  position:absolute; right:0; top:calc(100% + 8px);
+  width:min(92vw, 320px);
+  background:#141418; color:#e9e9ee;
+  border:1px solid #22232a; border-radius:12px;
+  box-shadow:0 16px 40px rgba(0,0,0,.35);
+  padding:8px; display:none; z-index:9999;
+}
+.desplegable-usuario.abierto{ display:block; }
+
+/* Link “Carrito (N)” dentro del dropdown */
+.enlace-carro{
+  display:flex; align-items:center; gap:10px;
+  padding:10px 12px; border-radius:10px;
+  text-decoration:none; color:#e9e9ee;
+}
+.enlace-carro:hover{ background:#0e0e12; }
+.enlace-carro i{ opacity:.9; }
+.enlace-carro .texto{ font-weight:600; }
+
+/* Ajustes móviles */
+@media (max-width:600px){
+  .btn-usuario .nombre{ max-width:110px; }
+  .desplegable-usuario{ width:90vw; }
 }
