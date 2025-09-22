@@ -1,13 +1,15 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>StoreFit - Polera Deportiva</title>
   <link rel="stylesheet" href="css/estilos.css" />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
 </head>
+
 <body>
   <header>
     <nav class="navbar">
@@ -41,11 +43,7 @@
         <span id="prod-precio" data-precio="15990">$15.990</span>
       </p>
 
-      <button
-        type="button"
-        class="btn"
-        onclick="agregarAlCarrito(1, 'Polera deportiva', 15990)"
-      >
+      <button type="button" class="btn" onclick="agregarAlCarrito(1, 'Polera deportiva', 15990)">
         Añadir al carrito
       </button>
     </section>
@@ -56,61 +54,71 @@
     </div>
   </main>
 
+  <!-- ✅ Footer limpio, solo una vez -->
   <footer>
-    <p>&copy; 2025 StoreFit - Todos los derechos reservados</p>    <p>&copy; 2025 StoreFit - Todos los derechos reservados</p>
-  </footer>r>
+    <p>&copy; 2025 StoreFit - Todos los derechos reservados</p>
+  </footer>
 
-  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>dn.jsdelivr.net/npm/sweetalert2@11"></script>
-  <script src="js/carrito.js"></script>"js/carrito.js"></script>
+  <!-- ✅ Scripts bien cerrados -->
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script src="js/carrito.js"></script>
   <script>
-const productos = {
-  polera: {
-    nombre: "Polera deportiva",
-    descripcion: "Polera ligera y cómoda para entrenamientos.",
-    precio: 15990,
-    imagen: "img/producto1.jpg",
-    id: 1
-  },
-  poleron: {
-    nombre: "Polerón deportivo",
-    descripcion: "Polerón abrigado ideal para días fríos y entrenamientos al aire libre.",
-    precio: 24990,
-    imagen: "img/producto2.jpg",
-    id: 2
-  }
-};
+    const productos = {
+      polera: {
+        nombre: "Polera deportiva",
+        descripcion: "Polera ligera y cómoda para entrenamientos.",
+        precio: 15990,
+        imagen: "img/producto1.jpg",
+        id: 1
+      },
+      poleron: {
+        nombre: "Polerón deportivo",
+        descripcion: "Polerón abrigado ideal para días fríos y entrenamientos al aire libre.",
+        precio: 24990,
+        imagen: "img/producto2.jpg",
+        id: 2
+      },
+      buzo: {
+        nombre: "Buzo deportivo",
+        descripcion: "Buzo cómodo y flexible para entrenamientos y uso diario.",
+        precio: 29990,
+        imagen: "img/producto3.jpg",
+        id: 3
+      }
+    };
 
-function getQueryParam(param) {
-  const urlParams = new URLSearchParams(window.location.search);
-  return urlParams.get(param);
-}
+    function getQueryParam(param) {
+      const urlParams = new URLSearchParams(window.location.search);
+      return urlParams.get(param);
+    }
 
-document.addEventListener("DOMContentLoaded", () => {
-  const tipo = getQueryParam("tipo");
-  const prod = productos[tipo];
-  const main = document.querySelector("main");
-  if (!prod) {
-    main.innerHTML = "<h1>Producto no encontrado.</h1>";
-    return;
-  }
-  main.innerHTML = `
-    <h1>${prod.nombre.toUpperCase()}</h1>
-    <img src="${prod.imagen}" alt="${prod.nombre}" />
-    <p>${prod.descripcion}</p>
-    <p><strong>Precio:</strong> $${prod.precio.toLocaleString()}</p>
-    <button
-      type="button"
-      class="btn"
-      onclick="agregarAlCarrito(${prod.id}, '${prod.nombre}', ${prod.precio})"
-    >
-      Añadir al carrito
-    </button>
-    <div style="margin-top:24px;">
-      <a class="btn" href="productos.html">← Volver a productos</a>
-      <a class="btn" href="carrito.html"><i class="fa-solid fa-cart-shopping"></i> Ir al carrito</a>
-    </div>
-  `;
-});
-</script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const tipo = getQueryParam("tipo");
+      const prod = productos[tipo];
+      const main = document.querySelector("main");
+      if (!prod) {
+        main.innerHTML = "<h1>Producto no encontrado.</h1>";
+        return;
+      }
+      main.innerHTML = `
+        <h1>${prod.nombre.toUpperCase()}</h1>
+        <img src="${prod.imagen}" alt="${prod.nombre}" />
+        <p>${prod.descripcion}</p>
+        <p><strong>Precio:</strong> $${prod.precio.toLocaleString()}</p>
+        <button
+          type="button"
+          class="btn"
+          onclick="agregarAlCarrito(${prod.id}, '${prod.nombre}', ${prod.precio})"
+        >
+          Añadir al carrito
+        </button>
+        <div style="margin-top:24px;">
+          <a class="btn" href="productos.html">← Volver a productos</a>
+          <a class="btn" href="carrito.html"><i class="fa-solid fa-cart-shopping"></i> Ir al carrito</a>
+        </div>
+      `;
+    });
+  </script>
 </body>
+
 </html>
