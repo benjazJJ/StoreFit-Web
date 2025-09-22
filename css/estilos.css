@@ -105,7 +105,7 @@ nav a {
   position: relative;
   padding: 5px 0;
   transition: color 0.3s ease, transform 0.3s ease;
-  font-size: 1.3rem;
+  font-size: 1rem;
 }
 .menu a:hover { transform: scale(1.1); }
 .menu a::after {
@@ -457,7 +457,7 @@ nav a {
   font-size: 2rem;
   margin: 0 0 10px 0;
   text-transform: uppercase; /* consistente con tu estilo */
-  color: #111;
+  color:dimgray;
 }
 
 /* "Publicado..." alineado a la derecha (usa .fecha que ya tienes en el HTML) */
@@ -498,7 +498,7 @@ nav a {
   text-transform: none;
   font-weight: 400;
   line-height: 1.7;
-  font-size: 1.05rem;
+  font-size: 0.808rem;
   color: #333;
   white-space: pre-line;  /* respeta los saltos de línea del HTML */
   margin: 0;             /* si usas <p> separados, puedes usar margin-bottom */
