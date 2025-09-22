@@ -4,9 +4,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>StoreFit - Polera Deportiva</title>
+  <title>StoreFit - Detalle de producto</title>
   <link rel="stylesheet" href="css/estilos.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
 </head>
 
@@ -14,7 +14,6 @@
   <header>
     <nav class="navbar">
       <img src="img/LogoStoreFitMontana.png" alt="Logo StoreFit" class="logo" />
-
       <ul class="menu">
         <li><a href="index.html">Inicio</a></li>
         <li><a href="productos.html" class="active">Productos</a></li>
@@ -22,7 +21,6 @@
         <li><a href="nosotros.html">Nosotros</a></li>
         <li><a href="contacto.html">Contacto</a></li>
       </ul>
-
       <a class="login" href="login.html">
         <i class="fa-regular fa-circle-user" aria-hidden="true"></i>
         <span>Login</span>
@@ -32,58 +30,48 @@
 
   <main>
     <section class="detalle-producto">
-      <h1>Polera deportiva</h1>
-
-      <img src="img/producto1.jpg" alt="Polera deportiva" />
-
-      <p>Polera ligera y cómoda para entrenamientos.</p>
-
-      <p>
-        <strong>Precio:</strong>
-        <span id="prod-precio" data-precio="15990">$15.990</span>
-      </p>
-
-      <button type="button" class="btn" onclick="agregarAlCarrito(1, 'Polera deportiva', 15990)">
-        Añadir al carrito
-      </button>
+      <h1>Detalle del producto</h1>
+      <!-- El contenido dinámico se genera con JS -->
     </section>
-
-    <div style="margin-top:24px;">
-      <a class="btn" href="productos.html">← Volver a productos</a>
-      <a class="btn" href="carrito.html"><i class="fa-solid fa-cart-shopping"></i> Ir al carrito</a>
-    </div>
   </main>
 
-  <!-- ✅ Footer limpio, solo una vez -->
   <footer>
     <p>&copy; 2025 StoreFit - Todos los derechos reservados</p>
   </footer>
 
-  <!-- ✅ Scripts bien cerrados -->
+  <!-- Scripts -->
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   <script src="js/carrito.js"></script>
   <script>
+    /* ======================= Datos base ======================= */
     const productos = {
       polera: {
         nombre: "Polera deportiva",
         descripcion: "Polera ligera y cómoda para entrenamientos.",
         precio: 15990,
-        imagen: "img/producto1.jpg",
+        imagen: "img/PoleraStorefit.png",
         id: 1
       },
       poleron: {
         nombre: "Polerón deportivo",
         descripcion: "Polerón abrigado ideal para días fríos y entrenamientos al aire libre.",
         precio: 24990,
-        imagen: "img/producto2.jpg",
+        imagen: "img/PoleronStorefit.png",
         id: 2
       },
       buzo: {
         nombre: "Buzo deportivo",
         descripcion: "Buzo cómodo y flexible para entrenamientos y uso diario.",
         precio: 29990,
-        imagen: "img/producto3.jpg",
+        imagen: "img/BuzosStoreFit.png",
         id: 3
+      },
+      zapatillas: {
+        nombre: "Conjunto deportivo mujer",
+        descripcion: "Top y Short ligeros y resistentes, ideales para running y entrenamientos de alto rendimiento.",
+        precio: 39990,
+        imagen: "img/TopMujer.png",
+        id: 4
       }
     };
 
@@ -92,6 +80,7 @@
       return urlParams.get(param);
     }
 
+    /* ======================= Render ======================= */
     document.addEventListener("DOMContentLoaded", () => {
       const tipo = getQueryParam("tipo");
       const prod = productos[tipo];
@@ -100,23 +89,69 @@
         main.innerHTML = "<h1>Producto no encontrado.</h1>";
         return;
       }
+
       main.innerHTML = `
-        <h1>${prod.nombre.toUpperCase()}</h1>
-        <img src="${prod.imagen}" alt="${prod.nombre}" />
-        <p>${prod.descripcion}</p>
-        <p><strong>Precio:</strong> $${prod.precio.toLocaleString()}</p>
-        <button
-          type="button"
-          class="btn"
-          onclick="agregarAlCarrito(${prod.id}, '${prod.nombre}', ${prod.precio})"
-        >
-          Añadir al carrito
-        </button>
-        <div style="margin-top:24px;">
-          <a class="btn" href="productos.html">← Volver a productos</a>
-          <a class="btn" href="carrito.html"><i class="fa-solid fa-cart-shopping"></i> Ir al carrito</a>
-        </div>
+        <section class="detalle-producto">
+          <!-- Columna izquierda (texto) -->
+          <div class="dp-col dp-info">
+            <h1 class="dp-titulo">${prod.nombre.toUpperCase()}</h1>
+
+            <p class="descripcion">${prod.descripcion}</p>
+
+            <ul class="ficha">
+              <li>Material principal: Poliéster transpirable</li>
+              <li>Tejido de secado rápido</li>
+              <li>Costuras reforzadas</li>
+            </ul>
+
+            <div class="tallas" role="group" aria-label="Seleccionar talla">
+              <button type="button" class="btn-talla" data-talla="XS">XS</button>
+              <button type="button" class="btn-talla" data-talla="S">S</button>
+              <button type="button" class="btn-talla" data-talla="M">M</button>
+              <button type="button" class="btn-talla" data-talla="L">L</button>
+              <button type="button" class="btn-talla" data-talla="XL">XL</button>
+              <button type="button" class="btn-talla" data-talla="XXL">XXL</button>
+            </div>
+
+            <p class="precio"><strong>Precio:</strong> $${prod.precio.toLocaleString()}</p>
+
+            <button type="button" class="btn btn-add" id="btn-add">
+              Añadir al carrito
+            </button>
+
+            <div class="dp-links">
+              <a class="btn" href="productos.html">← Volver a productos</a>
+              <a class="btn" href="carrito.html"><i class="fa-solid fa-cart-shopping"></i> Ir al carrito</a>
+            </div>
+          </div>
+
+          <!-- Columna derecha (imagen) -->
+          <div class="dp-col dp-img">
+            <img src="${prod.imagen}" alt="${prod.nombre}" />
+          </div>
+        </section>
       `;
+
+      // Toggle de tallas
+      document.querySelector(".tallas").addEventListener("click", (e) => {
+        if (!e.target.classList.contains("btn-talla")) return;
+        document.querySelectorAll(".btn-talla").forEach(b => b.classList.remove("active"));
+        e.target.classList.add("active");
+      });
+
+      // Añadir al carrito con validación de talla
+      document.getElementById("btn-add").addEventListener("click", () => {
+        const sel = document.querySelector(".btn-talla.active");
+        if (!sel) {
+          Swal.fire({ title: "Selecciona una talla", icon: "info", timer: 1300, showConfirmButton: false });
+          return;
+        }
+        const talla = sel.dataset.talla;
+        // Pasamos la talla como cuarto argumento. Si tu carrito.js aún no la guarda,
+        // funcionará igual (los argumentos extra se ignoran), pero te recomiendo
+        // guardar la talla para mostrarla luego en el carrito.
+        agregarAlCarrito(prod.id, prod.nombre, prod.precio, talla);
+      });
     });
   </script>
 </body>

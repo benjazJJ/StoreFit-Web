@@ -8,7 +8,6 @@
     <link rel="stylesheet" href="css/estilos.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-
 </head>
 
 <body>
@@ -18,7 +17,7 @@
 
             <ul class="menu">
                 <li><a href="index.html">Inicio</a></li>
-                <li><a href="productos.html">Productos</a></li>
+                <li><a href="productos.html" class="active">Productos</a></li>
                 <li><a href="blog.html">Blog</a></li>
                 <li><a href="nosotros.html">Nosotros</a></li>
                 <li><a href="contacto.html">Contacto</a></li>
@@ -34,7 +33,7 @@
         <section class="productos">
             <h1>PRODUCTOS</h1>
             <div id="lista-productos">
-                <!-- Ejemplo de productos -->
+                <!-- Polera -->
                 <div class="producto">
                     <img src="img/PoleraStorefit.png" alt="Polera deportiva">
                     <h3>Polera deportiva</h3>
@@ -42,6 +41,7 @@
                     <a href="producto.html?tipo=polera">Ver detalle</a>
                 </div>
 
+                <!-- Polerón -->
                 <div class="producto">
                     <img src="img/PoleronStorefit.png" alt="Polerón deportivo">
                     <h3>Polerón deportivo</h3>
@@ -49,22 +49,56 @@
                     <a href="producto.html?tipo=poleron">Ver detalle</a>
                 </div>
 
+                <!-- Buzo -->
                 <div class="producto">
-                    <img src="img/producto3.jpg" alt="Buzo deportivo">
+                    <img src="img/BuzosStoreFit.png" alt="Buzo deportivo">
                     <h3>Buzo deportivo</h3>
                     <p>$29.990</p>
                     <a href="producto.html?tipo=buzo">Ver detalle</a>
+                </div>
+
+                <!-- Zapatillas -->
+                <div class="producto">
+                    <img src="img/TopMujer.png" alt="Zapatillas deportivas">
+                    <h3>Zapatillas deportivas</h3>
+                    <p>$39.990</p>
+                    <a href="producto.html?tipo=zapatillas">Ver detalle</a>
                 </div>
             </div>
         </section>
     </main>
 
-    <footer>
-        <p>&copy; 2025 StoreFit - Todos los derechos reservados</p>
+    <footer class="site-footer">
+        <div class="footer-inner">
+            <div class="footer-left">
+                <div class="footer-brand">
+                    <img src="img/LogoStoreFitMontana.png" alt="StoreFit" />
+                    <span>StoreFit</span>
+                </div>
+                <div class="footer-pay">
+                    <i class="fa-brands fa-cc-visa" title="Visa"></i>
+                    <i class="fa-brands fa-cc-mastercard" title="Mastercard"></i>
+                    <i class="fa-brands fa-cc-amex" title="American Express"></i>
+                    <i class="fa-brands fa-cc-paypal" title="PayPal"></i>
+                </div>
+            </div>
+
+            <nav class="footer-nav" aria-label="Enlaces del sitio">
+                <a href="nosotros.html">Nosotros</a>
+                <a href="contacto.html">Contacto</a>
+                <a href="productos.html">Productos</a>
+            </nav>
+        </div>
+
+        <div class="footer-bottom">
+            <small>© <span data-year></span> StoreFit — Todos los derechos reservados</small>
+        </div>
     </footer>
-    <!-- SweetAlert2 -->
+
+    <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="js/carrito.js"></script>
+    <script src="js/sesion.js" defer></script>
 </body>
 
 </html>

@@ -19,6 +19,16 @@ document.addEventListener("click", (e) => {
   }
 });
 
+async function hash256(str){
+  if (window.crypto?.subtle){
+    const data = new TextEncoder().encode(str);
+    const hash = await crypto.subtle.digest("SHA-256", data);
+    return [...new Uint8Array(hash)].map(b=>b.toString(16).padStart(2,"0")).join("");
+  }
+  return "__plain__:" + str; // fallback
+}
+
+
 // ---------- Regiones → Comunas  ----------
 const regiones = {
   "Arica y Parinacota": ["Arica", "Camarones", "Putre", "General Lagos"],
@@ -174,9 +184,8 @@ const err = {
   comuna: $("#errComuna")
 };
 
-// Solo duoc.cl, profesor.duoc.cl, gmail.com
 const emailValido = (v) =>
-  /^[\w.+-]+@(duoc\.cl|profesor\.duoc\.cl|gmail\.com)$/i.test(String(v).trim());
+  /^[\w.+-]+@(duocuc\.cl|profesorduoc\.cl|gmail\.com)$/i.test(String(v).trim());
 
 function validar() {
   const nombre = $("#nombre")?.value.trim() ?? "";
@@ -207,35 +216,37 @@ function validar() {
 const getUsuarios = () => JSON.parse(localStorage.getItem("usuarios") || "[]");
 const setUsuarios = (arr) => localStorage.setItem("usuarios", JSON.stringify(arr));
 
-form?.addEventListener("submit", (e) => {
+form?.addEventListener("submit", async (e)=>{
   e.preventDefault();
-  if (!validar()) return;
+  if(!validar()) return;
+
+  const passHash = await hash256($("#contrasena").value);
 
   const nuevo = {
     nombre: $("#nombre").value.trim(),
     correo: $("#correo").value.trim(),
     region: selRegion.value,
     comuna: selComuna.value,
-    telefono: $("#telefono").value.trim()
-    // OJO: no guardes contraseñas reales en localStorage en un proyecto real.
+    telefono: $("#telefono").value.trim(),
+    passHash // ← clave guardada de forma hash
   };
 
-  const usuarios = getUsuarios();
-  usuarios.push(nuevo);
-  setUsuarios(usuarios);
+  const usuarios = JSON.parse(localStorage.getItem("usuarios") || "[]");
 
-  console.log("Usuario creado:");
-  console.table([nuevo]);
-  console.log("Usuarios guardados en localStorage (Application → Local Storage → localhost):");
+  // (Opcional) impedir correos duplicados
+  if (usuarios.some(u => u.correo.toLowerCase() === nuevo.correo.toLowerCase())){
+    $("#errCorreo").textContent = "Este correo ya está registrado.";
+    return;
+  }
+
+  usuarios.push(nuevo);
+  localStorage.setItem("usuarios", JSON.stringify(usuarios));
+
   console.table(usuarios);
 
-  Swal.fire({
-    icon: "success",
-    title: "¡Registro exitoso!",
-    text: "Tu cuenta ha sido creada correctamente.",
-    confirmButtonColor: "#3085d6"
-  });
+  await Swal.fire({ icon:'success', title:'¡Registro exitoso!', text:'Tu cuenta ha sido creada correctamente.' });
 
   form.reset();
-  if (selComuna) selComuna.disabled = true;
+  if(selComuna) selComuna.disabled = true;
 });
+
