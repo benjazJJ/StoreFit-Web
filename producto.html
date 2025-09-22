@@ -1,13 +1,15 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>StoreFit - Polera Deportiva</title>
   <link rel="stylesheet" href="css/estilos.css" />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
 </head>
+
 <body>
   <header>
     <nav class="navbar">
@@ -41,11 +43,7 @@
         <span id="prod-precio" data-precio="15990">$15.990</span>
       </p>
 
-      <button
-        type="button"
-        class="btn"
-        onclick="agregarAlCarrito(1, 'Polera deportiva', 15990)"
-      >
+      <button type="button" class="btn" onclick="agregarAlCarrito(1, 'Polera deportiva', 15990)">
         Añadir al carrito
       </button>
     </section>
@@ -57,43 +55,44 @@
   </main>
 
   <footer>
-    <p>&copy; 2025 StoreFit - Todos los derechos reservados</p>    <p>&copy; 2025 StoreFit - Todos los derechos reservados</p>
+    <p>&copy; 2025 StoreFit - Todos los derechos reservados</p>
+    <p>&copy; 2025 StoreFit - Todos los derechos reservados</p>
   </footer>r>
 
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>dn.jsdelivr.net/npm/sweetalert2@11"></script>
   <script src="js/carrito.js"></script>"js/carrito.js"></script>
   <script>
-const productos = {
-  polera: {
-    nombre: "Polera deportiva",
-    descripcion: "Polera ligera y cómoda para entrenamientos.",
-    precio: 15990,
-    imagen: "img/producto1.jpg",
-    id: 1
-  },
-  poleron: {
-    nombre: "Polerón deportivo",
-    descripcion: "Polerón abrigado ideal para días fríos y entrenamientos al aire libre.",
-    precio: 24990,
-    imagen: "img/producto2.jpg",
-    id: 2
-  }
-};
+    const productos = {
+      polera: {
+        nombre: "Polera deportiva",
+        descripcion: "Polera ligera y cómoda para entrenamientos.",
+        precio: 15990,
+        imagen: "img/producto1.jpg",
+        id: 1
+      },
+      poleron: {
+        nombre: "Polerón deportivo",
+        descripcion: "Polerón abrigado ideal para días fríos y entrenamientos al aire libre.",
+        precio: 24990,
+        imagen: "img/producto2.jpg",
+        id: 2
+      }
+    };
 
-function getQueryParam(param) {
-  const urlParams = new URLSearchParams(window.location.search);
-  return urlParams.get(param);
-}
+    function getQueryParam(param) {
+      const urlParams = new URLSearchParams(window.location.search);
+      return urlParams.get(param);
+    }
 
-document.addEventListener("DOMContentLoaded", () => {
-  const tipo = getQueryParam("tipo");
-  const prod = productos[tipo];
-  const main = document.querySelector("main");
-  if (!prod) {
-    main.innerHTML = "<h1>Producto no encontrado.</h1>";
-    return;
-  }
-  main.innerHTML = `
+    document.addEventListener("DOMContentLoaded", () => {
+      const tipo = getQueryParam("tipo");
+      const prod = productos[tipo];
+      const main = document.querySelector("main");
+      if (!prod) {
+        main.innerHTML = "<h1>Producto no encontrado.</h1>";
+        return;
+      }
+      main.innerHTML = `
     <h1>${prod.nombre.toUpperCase()}</h1>
     <img src="${prod.imagen}" alt="${prod.nombre}" />
     <p>${prod.descripcion}</p>
@@ -110,8 +109,36 @@ document.addEventListener("DOMContentLoaded", () => {
       <a class="btn" href="carrito.html"><i class="fa-solid fa-cart-shopping"></i> Ir al carrito</a>
     </div>
   `;
-});
-</script>
-<script src="js/sesion.js" defer></script>
+    });
+    <footer class="site-footer">
+      <div class="footer-inner">
+        <div class="footer-left">
+          <div class="footer-brand">
+            <img src="img/LogoStoreFitMontana.png" alt="StoreFit" />
+            <span>StoreFit</span>
+          </div>
+          <div class="footer-pay">
+            <i class="fa-brands fa-cc-visa" title="Visa"></i>
+            <i class="fa-brands fa-cc-mastercard" title="Mastercard"></i>
+            <i class="fa-brands fa-cc-amex" title="American Express"></i>
+            <i class="fa-brands fa-cc-paypal" title="PayPal"></i>
+          </div>
+        </div>
+
+        <nav class="footer-nav" aria-label="Enlaces del sitio">
+          <a href="nosotros.html">Nosotros</a>
+          <a href="contacto.html">Contacto</a>
+          <a href="productos.html">Productos</a>
+        </nav>
+      </div>
+
+      <div class="footer-bottom">
+        <small>© <span data-year></span> StoreFit — Todos los derechos reservados</small>
+      </div>
+    </footer>
+
+  </script>
+  <script src="js/sesion.js" defer></script>
 </body>
+
 </html>
