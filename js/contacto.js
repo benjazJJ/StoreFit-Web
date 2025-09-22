@@ -45,7 +45,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (!ok) return;
 
-    // 🚀 Mostrar datos en la consola
+    // Mostrar datos en la consola
     console.log("===== Datos del formulario =====");
     console.log("Nombre: ", nombre.value);
     console.log("Apellido: ", apellido.value);

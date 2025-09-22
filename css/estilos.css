@@ -171,7 +171,7 @@ nav a {
   text-transform: none;
   font-weight: 400;
   line-height: 1.6;
-  font-size: 1.3rem;
+  font-size: 1rem;
 }
 
 /* SOLO para el bloque VISIÓN */
@@ -322,7 +322,7 @@ nav a {
   font-weight: 400;
   line-height: 1.6;
   margin-bottom: 16px;
-  font-size: 1.2rem;
+  font-size: 0.9rem;
 }
 
 /* ===================================================== */
@@ -460,7 +460,7 @@ nav a {
   color:dimgray;
 }
 
-/* "Publicado..." alineado a la derecha (usa .fecha que ya tienes en el HTML) */
+/* "Publicado..." alineado a la derecha */
 .blog-detalle .fecha {
   text-align: right;
   margin: 0 0 18px 0;
@@ -470,7 +470,7 @@ nav a {
   font-size: .95rem;
 }
 
-/* Recuadro que contiene IMAGEN + CONTENIDO (usa .contenido-detalle del HTML) */
+/* Recuadro que contiene IMAGEN + CONTENIDO */
 .blog-detalle .contenido-detalle {
   display: grid;
   grid-template-columns: 1fr 1.4fr;   /* imagen izquierda / texto derecha */
@@ -486,22 +486,20 @@ nav a {
   width: 100%;
   height: auto;
   display: block;
-  border-radius: 0;                    /* recto para matchear el recuadro */
+  border-radius: 0;                    
   box-shadow: 0 6px 20px rgba(0,0,0,0.10);
   object-fit: cover;
 }
 
-/* Texto a la DERECHA con “párrafos” visibles
-   - Si dejas todo en un solo <p>, esto respeta saltos de línea (pre-line).
-   - Si luego separas cada párrafo en su propio <p>, también se verá bien. */
+/* Texto a la DERECHA con “párrafos” visibles */
 .blog-detalle .contenido-detalle .texto p {
   text-transform: none;
   font-weight: 400;
   line-height: 1.7;
   font-size: 0.808rem;
   color: #333;
-  white-space: pre-line;  /* respeta los saltos de línea del HTML */
-  margin: 0;             /* si usas <p> separados, puedes usar margin-bottom */
+  white-space: pre-line;  
+  margin: 0;             
 }
 
 /* Link "Volver" FUERA del recuadro */
@@ -524,4 +522,140 @@ nav a {
   .blog-detalle .fecha {
     text-align: center;
   }
+}
+
+/* Apartado de REGISTRO*/
+:root{
+  --auth-bg:#dfdfdf; --card:#141418; --line:#22232a; --txt:#e9e9ee; --muted:#a6a7ad;
+  --primary:#6A3DE2; --primary2:#29ABE2; --focus:#29ABE2; --error:#ff5a6a;
+  --radius:14px; --shadow:0 10px 30px rgba(0,0,0,.35);
+}
+
+/* Fondo y contenedor */
+.auth-container{
+  min-height:80vh;
+  display:grid;
+  place-items:center;
+  padding:40px 16px;
+  background:
+    radial-gradient(1000px 500px at 80% -10%, rgba(106,61,226,.15), transparent 60%),
+    radial-gradient(700px 350px at 20% 110%, rgba(41,171,226,.12), transparent 60%),
+    var(--auth-bg);
+  color:var(--txt);
+}
+
+/* Tarjeta */
+.auth-card{
+  width:min(100%, 560px);
+  background:var(--card);
+  border:1px solid var(--line);
+  border-radius:var(--radius);
+  box-shadow:var(--shadow);
+  padding:28px 32px;
+}
+
+/* Centrar y limitar el ancho del formulario */
+.auth-card form{
+  max-width:520px;      /* controla el ancho de los campos */
+  margin:0 auto;        /* centra el bloque dentro de la tarjeta */
+  display:block;        /* asegura flujo vertical */
+}
+
+.auth-title{
+  margin:0 0 12px;
+  font-size:clamp(1.4rem,2.6vw,1.9rem);
+}
+
+.grid-2{
+  display:block;       
+}
+
+/* Campos */
+.campo{ margin:14px 0; }
+.campo label{
+  display:block;
+  margin:0 0 6px;
+  color:var(--muted);
+  font-size:.95rem;
+}
+
+/* Evitar desbordes por padding + width */
+.auth-card *, .campo input, .campo select{ box-sizing:border-box; }
+
+.campo input,
+.campo select{
+  display:block;
+  width:100%;
+  padding:12px 14px;
+  background:#0e0e12;
+  color:var(--txt);
+  border:1px solid var(--line);
+  border-radius:12px;
+  outline:none;
+  transition:border-color .2s, box-shadow .2s;
+}
+.campo input:focus,
+.campo select:focus{
+  border-color:var(--focus);
+  box-shadow:0 0 0 3px rgba(41,171,226,.25);
+}
+
+/* Password con botón ver/ocultar*/
+.campo-password{
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 8px;            /* aire entre input y botón */
+}
+
+.campo-password input{
+  flex: 1;             /* el input ocupa todo el ancho disponible */
+}
+
+/* Botón ojo al lado del input */
+.ver-toggle{
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  border: 1px solid var(--line);
+  background: #101016;
+  color: var(--muted);
+  border-radius: 10px;
+  cursor: pointer;
+  transition: filter .2s;
+}
+.ver-toggle:hover{ filter: brightness(1.1); }
+.ver-toggle i{ pointer-events: none; } /* evita conflictos al clickear el ícono */
+
+/* Botón principal*/
+.btn-primario{
+  width:100%;
+  margin-top:12px;
+  padding:12px 14px;
+  border:0;
+  border-radius:12px;
+  background:linear-gradient(90deg, var(--primary), var(--primary2));
+  color:#fff;
+  font-weight:700;
+  letter-spacing:.3px;
+  cursor:pointer;
+  transition:filter .2s, transform .02s;
+}
+.btn-primario:hover{ filter:brightness(1.05); }
+.btn-primario:active{ transform:translateY(1px); }
+
+/* Mensajes de error */
+.error{
+  margin-top:6px;
+  color:#ff5a6a;
+  font-size:13px;
+  font-weight:600;
+  text-transform:none;
+}
+
+/* Ajuste en móviles */
+@media (max-width:560px){
+  .auth-card{ padding:24px 20px; }
+  .auth-card form{ max-width:100%; }
 }
