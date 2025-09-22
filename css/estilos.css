@@ -441,3 +441,87 @@ nav a {
   box-shadow: 0 6px 20px rgba(0,0,0,0.12);
 }
 
+
+/* ===================================================== */
+/* === Detalle blog uno === */
+/* ===================================================== */
+.blog-detalle {
+  max-width: 1100px;
+  margin: 40px auto 60px auto;
+  padding: 0 20px;
+}
+
+/* Título centrado */
+.blog-detalle h1 {
+  text-align: center;
+  font-size: 2rem;
+  margin: 0 0 10px 0;
+  text-transform: uppercase; /* consistente con tu estilo */
+  color: #111;
+}
+
+/* "Publicado..." alineado a la derecha (usa .fecha que ya tienes en el HTML) */
+.blog-detalle .fecha {
+  text-align: right;
+  margin: 0 0 18px 0;
+  font-weight: 400;          /* más liviano que el título */
+  text-transform: none;      /* lectura natural */
+  color: #666;               /* gris sutil */
+  font-size: .95rem;
+}
+
+/* Recuadro que contiene IMAGEN + CONTENIDO (usa .contenido-detalle del HTML) */
+.blog-detalle .contenido-detalle {
+  display: grid;
+  grid-template-columns: 1fr 1.4fr;   /* imagen izquierda / texto derecha */
+  gap: 26px;
+  background: #f5f5f5;                /* gris claro del recuadro */
+  border: 1px solid #e5e7eb;          /* borde sutil */
+  border-radius: 0;                    /* bordes rectos */
+  padding: 24px;
+}
+
+/* Imagen a la IZQUIERDA */
+.blog-detalle .contenido-detalle .imagen img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 0;                    /* recto para matchear el recuadro */
+  box-shadow: 0 6px 20px rgba(0,0,0,0.10);
+  object-fit: cover;
+}
+
+/* Texto a la DERECHA con “párrafos” visibles
+   - Si dejas todo en un solo <p>, esto respeta saltos de línea (pre-line).
+   - Si luego separas cada párrafo en su propio <p>, también se verá bien. */
+.blog-detalle .contenido-detalle .texto p {
+  text-transform: none;
+  font-weight: 400;
+  line-height: 1.7;
+  font-size: 1.05rem;
+  color: #333;
+  white-space: pre-line;  /* respeta los saltos de línea del HTML */
+  margin: 0;             /* si usas <p> separados, puedes usar margin-bottom */
+}
+
+/* Link "Volver" FUERA del recuadro */
+.blog-detalle .volver {
+  display: inline-block;
+  margin-top: 16px;          /* separa del recuadro */
+  text-decoration: none;
+  font-weight: 700;
+  color: #29ABE2;            /* tono del degradado */
+}
+.blog-detalle .volver:hover {
+  text-decoration: underline;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .blog-detalle .contenido-detalle {
+    grid-template-columns: 1fr; /* apilar: imagen arriba, texto abajo */
+  }
+  .blog-detalle .fecha {
+    text-align: center;
+  }
+}
