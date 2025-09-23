@@ -1,19 +1,81 @@
-<!DOCTYPE html>
-<html lang='es'>
-
-<head>
-    <meta charset='UTF-8'>
-    <title>Admin - Usuarios</title>
-    <link rel='stylesheet' href='../css/estilos.css'>
+<!DOCTYPE html><html lang="es"><head>
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Admin — Usuarios</title>
+<link rel="stylesheet" href="./css/admin.css"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
 </head>
+<body data-page="usuarios">
+  <aside class="sidebar">
+    <div class="brand"><span class="dot"></span> StoreFit • Admin</div>
+    <nav>
+      <a href="./index.html" class="nav-item"><i class="fa-solid fa-house"></i> Inicio</a>
+      <a href="./productos.html" class="nav-item"><i class="fa-solid fa-boxes-stacked"></i> Productos</a>
+      <a href="./usuarios.html" class="nav-item active"><i class="fa-solid fa-users"></i> Usuarios</a>
+    </nav>
+  </aside>
 
-<body>
-    <header>
-        <h1>Gestión de Usuarios</h1>
+  <main class="content">
+    <header class="topbar">
+      <h1>Usuarios</h1>
+      <button id="btn-nuevo-usr" class="btn icon"><i class="fa-solid fa-user-plus"></i> Nuevo Usuario</button>
     </header>
-    <main>
-        <p>Aquí estará el CRUD de usuarios.</p>
-    </main>
-</body>
 
-</html>
+    <div class="toolbar">
+      <div class="tools-left">
+        <div class="input"><i class="fa-solid fa-magnifying-glass"></i><input id="q-usr" placeholder="Buscar por RUN, nombre o correo"/></div>
+        <select id="pp-usr" class="select">
+          <option value="5">5 / página</option>
+          <option value="10" selected>10 / página</option>
+          <option value="20">20 / página</option>
+        </select>
+      </div>
+    </div>
+
+    <section class="card">
+      <div class="tablewrap">
+        <table>
+          <thead>
+            <tr>
+              <th>RUN</th><th>Nombre</th><th>Correo</th><th>Rol</th><th>Región</th><th>Comuna</th><th style="width:160px"></th>
+            </tr>
+          </thead>
+          <tbody id="tbody-usuarios"></tbody>
+        </table>
+      </div>
+      <div class="pager" id="pager-usr"></div>
+    </section>
+
+    <dialog id="dlg-usuario" class="dialog">
+      <form id="frm-usuario" method="dialog" class="form">
+        <h2 id="dlg-title-usr">Nuevo usuario</h2>
+        <div class="grid-form">
+          <label>RUN* (sin puntos ni guion)<input name="run" minlength="7" maxlength="9" required placeholder="19011022K"/></label>
+          <label>Nombre*<input name="nombre" maxlength="50" required/></label>
+          <label>Apellidos*<input name="apellidos" maxlength="100" required/></label>
+          <label>Correo*<input name="correo" maxlength="100" required/></label>
+          <label>Fecha Nacimiento<input type="date" name="fechaNac"/></label>
+          <label>Tipo de Usuario*
+            <select name="rol" required>
+              <option value="">Seleccione</option>
+              <option>Administrador</option>
+              <option>Vendedor</option>
+              <option>Cliente</option>
+            </select>
+          </label>
+          <label>Región*<select name="region" required></select></label>
+          <label>Comuna*<select name="comuna" required></select></label>
+          <label class="full">Dirección*<input name="direccion" maxlength="300" required/></label>
+        </div>
+        <div id="errors-usr" class="errors" hidden></div>
+        <menu class="actions">
+          <button type="reset" class="btn ghost" id="btn-cancelar-usr">Cancelar</button>
+          <button class="btn" id="btn-guardar-usr">Guardar</button>
+        </menu>
+        <input type="hidden" name="__editIndex" />
+      </form>
+    </dialog>
+  </main>
+
+  <div id="toast" class="toast"></div>
+  <script src="./js/admin.js" defer></script>
+</body></html>

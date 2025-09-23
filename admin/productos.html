@@ -1,19 +1,87 @@
 <!DOCTYPE html>
-<html lang='es'>
+<html lang="es">
 
 <head>
-    <meta charset='UTF-8'>
-    <title>Admin - Productos</title>
-    <link rel='stylesheet' href='../css/estilos.css'>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin — Productos</title>
+    <link rel="stylesheet" href="./css/admin.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
 </head>
 
-<body>
-    <header>
-        <h1>Gestión de Productos</h1>
-    </header>
-    <main>
-        <p>Aquí estará el CRUD de productos.</p>
+<body data-page="productos">
+    <aside class="sidebar">
+        <div class="brand"><span class="dot"></span> StoreFit • Admin</div>
+        <nav>
+            <a href="./index.html" class="nav-item"><i class="fa-solid fa-house"></i> Inicio</a>
+            <a href="./productos.html" class="nav-item active"><i class="fa-solid fa-boxes-stacked"></i> Productos</a>
+            <a href="./usuarios.html" class="nav-item"><i class="fa-solid fa-users"></i> Usuarios</a>
+        </nav>
+    </aside>
+
+    <main class="content">
+        <header class="topbar">
+            <h1>Productos</h1>
+            <button id="btn-nuevo" class="btn icon"><i class="fa-solid fa-plus"></i> Nuevo Producto</button>
+        </header>
+
+        <div class="toolbar">
+            <div class="tools-left">
+                <div class="input"><i class="fa-solid fa-magnifying-glass"></i><input id="q-prod"
+                        placeholder="Buscar por código o nombre" /></div>
+                <select id="pp-prod" class="select">
+                    <option value="5">5 / página</option>
+                    <option value="10" selected>10 / página</option>
+                    <option value="20">20 / página</option>
+                </select>
+            </div>
+        </div>
+
+        <section class="card">
+            <div class="tablewrap">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Código</th>
+                            <th>Nombre</th>
+                            <th>Precio</th>
+                            <th>Stock</th>
+                            <th>Categoría</th>
+                            <th style="width:160px"></th>
+                        </tr>
+                    </thead>
+                    <tbody id="tbody-productos"></tbody>
+                </table>
+            </div>
+            <div class="pager" id="pager-prod"></div>
+        </section>
+
+        <dialog id="dlg-producto" class="dialog">
+            <form id="frm-producto" method="dialog" class="form">
+                <h2 id="dlg-title">Nuevo producto</h2>
+                <div class="grid-form">
+                    <label>Código*<input name="codigo" minlength="3" required /></label>
+                    <label>Nombre*<input name="nombre" maxlength="100" required /></label>
+                    <label>Precio*<input name="precio" type="number" step="0.01" min="0" required /></label>
+                    <label>Stock*<input name="stock" type="number" step="1" min="0" required /></label>
+                    <label>Stock crítico<input name="stockCritico" type="number" step="1" min="0" /></label>
+                    <label>Categoría*<select name="categoria" required></select></label>
+                    <label class="full">Descripción<textarea name="descripcion" maxlength="500"
+                            rows="3"></textarea></label>
+                    <label class="full">Imagen (URL)<input name="imagen" type="url" placeholder="https://..." /></label>
+                </div>
+                <div id="errors-prod" class="errors" hidden></div>
+                <menu class="actions">
+                    <button type="reset" class="btn ghost" id="btn-cancelar">Cancelar</button>
+                    <button class="btn" id="btn-guardar">Guardar</button>
+                </menu>
+                <input type="hidden" name="__editIndex" />
+            </form>
+        </dialog>
     </main>
+
+    <div id="toast" class="toast"></div>
+    <script src="./js/admin.js" defer></script>
 </body>
 
 </html>

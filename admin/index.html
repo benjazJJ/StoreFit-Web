@@ -1,27 +1,47 @@
 <!DOCTYPE html>
-<html lang='es'>
+<html lang="es">
 
 <head>
-    <meta charset='UTF-8'>
-    <title>Admin - Home</title>
-    <link rel='stylesheet' href='../css/estilos.css'>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin — Home</title>
+    <link rel="stylesheet" href="./css/admin.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
 </head>
 
-<body>
-    <header>
-        <h1>Panel Administrador</h1>
-    </header>
-    <main>
+<body data-page="home">
+    <aside class="sidebar">
+        <div class="brand"><span class="dot"></span> StoreFit • Admin</div>
         <nav>
-            <ul>
-                <li><a href='productos.html'>Productos</a></li>
-                <li><a href='usuarios.html'>Usuarios</a></li>
-            </ul>
+            <a href="./index.html" class="nav-item active"><i class="fa-solid fa-house"></i> Inicio</a>
+            <a href="./productos.html" class="nav-item"><i class="fa-solid fa-boxes-stacked"></i> Productos</a>
+            <a href="./usuarios.html" class="nav-item"><i class="fa-solid fa-users"></i> Usuarios</a>
         </nav>
-        <section>
-            <p>Bienvenido al sistema administrador.</p>
+    </aside>
+
+    <main class="content">
+        <header class="topbar">
+            <h1>¡Hola, Administrador!</h1>
+            <div class="userchip"><i class="fa-solid fa-user-shield"></i> Admin</div>
+        </header>
+
+        <section class="grid">
+            <article class="card">
+                <h2>Productos</h2>
+                <p class="lead">Administra catálogo, precios y stock.</p>
+                <a class="btn icon" href="./productos.html"><i class="fa-solid fa-box"></i> Ir a Productos</a>
+            </article>
+
+            <article class="card">
+                <h2>Usuarios</h2>
+                <p class="lead">Alta, edición y perfiles de acceso.</p>
+                <a class="btn icon" href="./usuarios.html"><i class="fa-solid fa-user-gear"></i> Ir a Usuarios</a>
+            </article>
         </section>
     </main>
+
+    <div id="toast" class="toast"></div>
+    <script src="./js/admin.js" defer></script>
 </body>
 
 </html>
