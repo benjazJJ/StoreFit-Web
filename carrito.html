@@ -33,6 +33,15 @@
       <h1>Tu carrito</h1>
       <ul id="lista-carrito"></ul>
       <p id="total-carrito">Total: $0</p>
+
+      <!-- Botón Finalizar Compra aquí dentro -->
+      <div class="checkout-section">
+        <button class="btn-finalizar-compra" onclick="finalizarCompra()">
+          <i class="fa-solid fa-credit-card checkout-icon"></i>
+          Finalizar Compra
+        </button>
+      </div>
+
       <a class="btn" href="productos.html">← Seguir comprando</a>
     </section>
   </main>
@@ -63,7 +72,6 @@
       <small>© <span data-year></span> StoreFit — Todos los derechos reservados</small>
     </div>
   </footer>
-
 
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   <script src="js/sesion.js" defer></script>

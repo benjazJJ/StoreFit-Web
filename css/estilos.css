@@ -1211,6 +1211,52 @@ footer .footer-bottom {
   font-size: 13px;
 }
 
+/* Botón Finalizar Compra - Estilo StoreFit */
+.checkout-section {
+  margin-top: 16px;
+  margin-bottom: 12px;
+}
+
+.btn-finalizar-compra {
+  width: auto;
+  min-width: 200px;
+  height: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 8px;
+  padding: 0 24px;
+  border-radius: 12px;
+  font-size: 1rem;
+  font-weight: 700;
+  background: linear-gradient(90deg, #064635, #29ABE2, #6A3DE2);
+  color: #fff;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: none;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  box-shadow: 0 4px 12px rgba(6, 70, 53, 0.3);
+}
+
+.btn-finalizar-compra:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(6, 70, 53, 0.4);
+  filter: brightness(1.05);
+}
+
+.checkout-icon {
+  margin-right: 8px;
+  font-size: 1rem;
+}
+
+@media (max-width: 768px) {
+  .btn-finalizar-compra {
+    width: 100%;
+    min-width: auto;
+  }
+}
+
 /* ===================================================== */
 /* === RESPONSIVE - ARREGLOS DE MOVIL === */
 /* ===================================================== */
