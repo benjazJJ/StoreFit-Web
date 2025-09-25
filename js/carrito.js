@@ -1,11 +1,5 @@
 /* ===================== CARRITO POR USUARIO ===================== */
-/* Siempre toma los helpers desde window.__SF__ en tiempo de ejecución.
-   Si por alguna razón sesion.js no está listo, usa “invitado”. */
 
-/* === Opción 2: Mapa centralizado de imágenes en JS ===
-   - Si existe window.IMAGENES_PRODUCTO lo usamos (permite sobreescribir desde HTML si quieres).
-   - Si no, usamos este mapa local por defecto.
-*/
 const IMAGENES_PRODUCTO_LOCAL = {
   1: 'img/PoleraStorefit.png',
   2: 'img/PoleronStorefit.png',
@@ -26,7 +20,7 @@ function guardarCarrito(arr) {
   } else {
     localStorage.setItem("sf_carrito_invitado", JSON.stringify(arr));
     // avisa para refrescar contadores en esta pestaña
-    try { window.dispatchEvent(new CustomEvent("sf:carrito-actualizado")); } catch {}
+    try { window.dispatchEvent(new CustomEvent("sf:carrito-actualizado")); } catch { }
   }
 }
 
@@ -45,7 +39,7 @@ const stockProductos = {
   1: { XS: 3, S: 5, M: 5, L: 4, XL: 2, XXL: 1 }, // Polera con stock por talla
   2: 3,                                          // Polerón: stock global
   3: 8,                                          // Buzo: stock global
-  4: { XS: 2, S: 3, M: 4, L: 3, XL: 2, XXL: 2 }  // Zapatillas con stock por talla
+  4: { XS: 2, S: 3, M: 4, L: 3, XL: 2, XXL: 2 }  // Conjunto deportivo con stock por talla
 };
 
 /* Helpers de stock / formato */
@@ -71,8 +65,8 @@ function getStockDisponible(idProducto, tallaSeleccionada) {
 function getImagenProducto(p) {
   const mapa = window.IMAGENES_PRODUCTO || IMAGENES_PRODUCTO_LOCAL;
   return p.imagenUrl
-      || (mapa && mapa[p.id])
-      || `img/productos/${p.id}.jpg`;
+    || (mapa && mapa[p.id])
+    || `img/productos/${p.id}.jpg`;
 }
 
 /* ================================================================
@@ -200,7 +194,7 @@ function mostrarCarrito() {
         : getStockDisponible(arr[i].id, arr[i].talla);
 
       if (Number.isFinite(stockDisp) && val > stockDisp) {
-        Swal?.fire({ title:'Stock insuficiente', text:`Máximo ${stockDisp} unidades.`, icon:'warning', timer:1400, showConfirmButton:false, timerProgressBar:true });
+        Swal?.fire({ title: 'Stock insuficiente', text: `Máximo ${stockDisp} unidades.`, icon: 'warning', timer: 1400, showConfirmButton: false, timerProgressBar: true });
         arr[i].cantidad = stockDisp;
       } else {
         arr[i].cantidad = val;
@@ -221,7 +215,7 @@ function mostrarCarrito() {
         guardarCarrito(arr);
         mostrarCarrito();
       } else {
-        Swal?.fire({ title:'Stock insuficiente', text:`No puedes agregar más de ${stockDisp} unidades.`, icon:'warning', timer:1600, showConfirmButton:false, timerProgressBar:true });
+        Swal?.fire({ title: 'Stock insuficiente', text: `No puedes agregar más de ${stockDisp} unidades.`, icon: 'warning', timer: 1600, showConfirmButton: false, timerProgressBar: true });
       }
     };
 
@@ -248,7 +242,7 @@ window.addEventListener("sf:carrito-actualizado", mostrarCarrito);
 window.addEventListener("storage", (e) => {
   // si cambió la clave del carrito actual en otra pestaña, repinta
   if (typeof window.__SF__?.claveCarritoActual === "function" &&
-      e.key === window.__SF__.claveCarritoActual()) {
+    e.key === window.__SF__.claveCarritoActual()) {
     mostrarCarrito();
   }
 });
