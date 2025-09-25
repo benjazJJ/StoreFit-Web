@@ -36,7 +36,7 @@ const stockProductos = {
   1: { XS: 3, S: 5, M: 5, L: 4, XL: 2, XXL: 1 }, // Polera con stock por talla
   2: 3,                                          // Polerón: stock global
   3: 8,                                          // Buzo: stock global
-  4: { XS: 2, S: 3, M: 4, L: 3, XL: 2, XXL: 2 }  // Zapatillas con stock por talla
+  4: { XS: 2, S: 3, M: 4, L: 3, XL: 2, XXL: 2 }  // Conjunto deportivo con stock por talla
 };
 
 /* Helpers de stock / formato */
