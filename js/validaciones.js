@@ -1,5 +1,4 @@
 // Aquí irán las validaciones de formularios con JavaScript
-// Dominios de correo permitidos (documento)
 const DOMINIOS_PERMITIDOS = ["duoc.cl", "profesor.duoc.cl", "gmail.com"];
 
 /* ============================
@@ -64,7 +63,6 @@ function normalizarRun(run) {
     return String(run || "").replace(/\./g, "").replace(/-/g, "").toUpperCase();
 }
 function digitoVerificador(num) {
-    // Algoritmo módulo 11
     let s = 1, m = 0;
     for (; num; num = Math.floor(num / 10)) {
         s = (s + (num % 10) * (9 - (m++ % 6))) % 11;
@@ -89,7 +87,7 @@ function runValido(run) {
    - correo (req, max 100, dominio permitido)
    - fecha_nacimiento (opcional)
    - tipo_usuario (select con Admin/Cliente/Vendedor)
-   - región/comuna (cargar desde arrays JS; no se fuerza requerido)
+   - región/comuna
    ============================ */
 function validarUsuario(form) {
     let ok = true;

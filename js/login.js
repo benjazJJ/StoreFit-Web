@@ -69,11 +69,11 @@ async function hash256(str) {
     const hash = await crypto.subtle.digest("SHA-256", data);
     return [...new Uint8Array(hash)].map(b => b.toString(16).padStart(2, "0")).join("");
   }
-  // Fallback (demo): NO usar en producción
+
   return "__plain__:" + str;
 }
 
-// ===== Validación de correo (OPCIÓN B) =====
+// ===== Validación de correo =====
 const emailValido = (v) =>
   /^[\w.+-]+@(duocuc\.cl|profesorduoc\.cl|gmail\.com)$/i.test(String(v).trim());
 
@@ -135,7 +135,7 @@ form?.addEventListener("submit", async (e) => {
   if (checkR.checked) localStorage.setItem("remember_email", correo.value.trim());
   else localStorage.removeItem("remember_email");
 
-  // Crear “sesión” (demo)
+  // Crear “sesión”
   const sesion = { correo: u.correo, nombre: u.nombre, loginAt: new Date().toISOString() };
   localStorage.setItem("sf_sesion", JSON.stringify(sesion));
 
