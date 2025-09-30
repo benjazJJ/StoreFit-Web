@@ -19,11 +19,11 @@ document.addEventListener("click", (e) => {
   }
 });
 
-async function hash256(str){
-  if (window.crypto?.subtle){
+async function hash256(str) {
+  if (window.crypto?.subtle) {
     const data = new TextEncoder().encode(str);
     const hash = await crypto.subtle.digest("SHA-256", data);
-    return [...new Uint8Array(hash)].map(b=>b.toString(16).padStart(2,"0")).join("");
+    return [...new Uint8Array(hash)].map(b => b.toString(16).padStart(2, "0")).join("");
   }
   return "__plain__:" + str; // fallback
 }
@@ -216,9 +216,9 @@ function validar() {
 const getUsuarios = () => JSON.parse(localStorage.getItem("usuarios") || "[]");
 const setUsuarios = (arr) => localStorage.setItem("usuarios", JSON.stringify(arr));
 
-form?.addEventListener("submit", async (e)=>{
+form?.addEventListener("submit", async (e) => {
   e.preventDefault();
-  if(!validar()) return;
+  if (!validar()) return;
 
   const passHash = await hash256($("#contrasena").value);
 
@@ -234,7 +234,7 @@ form?.addEventListener("submit", async (e)=>{
   const usuarios = JSON.parse(localStorage.getItem("usuarios") || "[]");
 
   // (Opcional) impedir correos duplicados
-  if (usuarios.some(u => u.correo.toLowerCase() === nuevo.correo.toLowerCase())){
+  if (usuarios.some(u => u.correo.toLowerCase() === nuevo.correo.toLowerCase())) {
     $("#errCorreo").textContent = "Este correo ya está registrado.";
     return;
   }
@@ -244,9 +244,9 @@ form?.addEventListener("submit", async (e)=>{
 
   console.table(usuarios);
 
-  await Swal.fire({ icon:'success', title:'¡Registro exitoso!', text:'Tu cuenta ha sido creada correctamente.' });
+  await Swal.fire({ icon: 'success', title: '¡Registro exitoso!', text: 'Tu cuenta ha sido creada correctamente.' });
 
   form.reset();
-  if(selComuna) selComuna.disabled = true;
+  if (selComuna) selComuna.disabled = true;
 });
 
